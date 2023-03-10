@@ -1,1 +1,22 @@
 <app-movie-slider></app-movie-slider>
+<div class="listing">
+    <div class="listing__head">
+        <h3 class="listing__title">Trending Movies</h3>
+    </div>
+
+    <app-skeleton *ngIf="isLoading"></app-skeleton>
+    <p-carousel [value]="trendingMovies" [numVisible]="6" [numScroll]="4" [circular]="false" *ngIf="!isLoading"
+        [responsiveOptions]="responsiveOptions">
+        <ng-template let-movie pTemplate="item">
+            <div class="listing-item-style">
+                <img *ngIf="movie?.moviePosterUrl"
+                    src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.moviePosterUrl}}">
+                <img *ngIf="!movie?.moviePosterUrl" src="assets/images/default-movie.png">
+                <h6>{{ movie?.title }}</h6>
+                <p class="rate"><mat-icon class="material-icons">star</mat-icon><span>{{movie?.imbdRating}}</span> /10</p>
+                <p class="year"><span>{{movie?.yearReleased | date: 'yyyy'}}</span>
+                </p>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>

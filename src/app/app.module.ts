@@ -10,6 +10,9 @@ import { SearchModule } from './components/search/search.module';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieSliderComponent } from './components/movie-slider/movie-slider.component';
+import { SkeletonComponent } from './skeleton/skeleton.component';
+import { CarouselModule } from 'primeng/carousel';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,7 @@ import { MovieSliderComponent } from './components/movie-slider/movie-slider.com
     HeaderComponent,
     HomeComponent,
     MovieSliderComponent,
+    SkeletonComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,9 +34,11 @@ import { MovieSliderComponent } from './components/movie-slider/movie-slider.com
     AppRoutingModule,
     SearchModule,
     MyAngularMaterialModule,
+    CarouselModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [HomeComponent, MovieSliderComponent],
+  exports: [HomeComponent, MovieSliderComponent, SkeletonComponent],
 })
 export class AppModule {}
