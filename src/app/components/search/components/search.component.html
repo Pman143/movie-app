@@ -1,3 +1,26 @@
 <main class="main-content">
-    <p>Hello</p>
+    <div class="listing">
+        <div class="listing__head">
+            <h3 class="listing__title">TV Shows</h3>
+        </div>
+    
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control searchdesign" placeholder="Search for movies..."
+                                [(ngModel)]="searchStr" name="searchStr" (keyup.enter)="searchMovies()">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary btnDesign" type="button"
+                                    (click)="searchMovies()">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <app-skeleton *ngIf="isLoading"></app-skeleton>
+        {{response | json}}    
+    </div>
 </main>

@@ -20,6 +20,10 @@
     @media (min-width: $breakpoint-large) {
       margin-bottom: 2rem;
     }
+
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
+        margin-top: 30px;        
+    }
   }
   
   .listing__title {

@@ -26,3 +26,30 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.search-movie {
+  display: none;
+  font-size: large;
+
+  @media (min-width: $breakpoint-xsmall + 1) {
+    display: block;
+    padding: 7px;
+    border-radius: 25px 25px;
+    cursor: pointer;
+    .search-movie:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+.search-icon {
+  display: none;
+  @media (max-width: $breakpoint-xsmall) {
+    cursor: pointer;
+    background: url('../../../assets/images/search.svg');
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-repeat: no-repeat;
+  }
+}

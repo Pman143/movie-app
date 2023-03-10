@@ -13,6 +13,7 @@ import { MovieSliderComponent } from './components/movie-slider/movie-slider.com
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { CarouselModule } from 'primeng/carousel';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     SearchModule,
     MyAngularMaterialModule,
