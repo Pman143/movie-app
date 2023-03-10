@@ -5,7 +5,9 @@
     </div>
 
     <app-skeleton *ngIf="isLoading"></app-skeleton>
-    <p-carousel [value]="trendingMovies" [numVisible]="6" [numScroll]="4" [circular]="false" *ngIf="!isLoading"
+    <p-carousel [value]="trendingMovies" 
+    [numVisible]="6" [numScroll]="4" 
+    [circular]="false" *ngIf="!isLoading"
         [responsiveOptions]="responsiveOptions">
         <ng-template let-movie pTemplate="item">
             <div class="listing-item-style">

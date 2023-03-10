@@ -30,23 +30,7 @@
       font-size: 2.4rem;
     }
   }
-  
-  .listing__explore {
-    margin-left: 1rem;
-    font-size: 1.2rem;
-    color: $primary-color;
-    letter-spacing: $letter-spacing;
-  
-    @media (min-width: $breakpoint-large) {
-      font-size: 1.4rem;
-    }
-  
-    &:hover,
-    &:focus {
-      opacity: 0.8;
-    }
-  }
-  
+
   
   .listing-item-style {
     background-color: #212121;
@@ -92,7 +76,7 @@
       top: 0px;
       left: 8px;
   
-      i {
+      mat-icon {
         font-size: 16px;
         margin-right: 5px;
       }
@@ -127,50 +111,9 @@
     .listing-item-style{
       margin: 5px;
     }
-  }
+  }  
   
-  .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: transparent;
-  }
-  
-  
-  .hover {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-family: Dosis, sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
-    background-color: $secondary-color;
-    padding: 8px 15px;
-    z-index: 2;
-    width: 120px;
-    height: 38px;
-    border-radius: 1px;
-    cursor: pointer;
-    transition: all .5s ease-out;
-    
-    i {
-      position: absolute;
-      line-height: 25px;
-      font-size: 13px;
-      left: 13px;
-    }
-  }
-  
-  .listing-item-style:hover .overlay {
+  .listing-item-style:hover {
     opacity: 1;
   }
   
