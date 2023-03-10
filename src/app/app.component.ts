@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { SwUpdate } from '@angular/service-worker';
-import { Subscription } from 'rxjs';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +8,17 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent {
   title = 'movie-app';
-  subscriptions: Subscription[] = [];
+  isLoading: boolean = false;
 
-  constructor(private swUpdate: SwUpdate) {
-    console.log(this.swUpdate.isEnabled);
-    if (this.swUpdate.isEnabled) {
-      this.swUpdate
-        .checkForUpdate()
-        .then((res) => {
-          console.log('Response ' + res);
-        })
-        .catch((error) => {
-          console.error('Could not check for app updates', error);
-        });
-    }
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.isLoading = true;
+      } else if (event instanceof NavigationEnd) {
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 2000);
+      }
+    });
   }
 }

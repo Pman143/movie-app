@@ -1,4 +1,4 @@
-import { SearchComponent } from './search.component';
+import { SearchComponent } from './components/search.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchRoutingModule } from './search-routing.module';

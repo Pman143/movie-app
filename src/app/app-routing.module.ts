@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: AppComponent, pathMatch: 'full' },
+  { path: '', redirectTo: 'search-movie', pathMatch: 'full' },
   {
-    path: 'search',
+    path: 'search-movie',
     loadChildren: () =>
-      import('./search/search-module.module').then((m) => m.SearchModule),
+      import('./search/search.module').then((m) => m.SearchModule),
   },
 ];
 
