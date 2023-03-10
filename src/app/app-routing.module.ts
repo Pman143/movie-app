@@ -7,9 +7,7 @@ const routes: Routes = [
   {
     path: 'search',
     loadChildren: () =>
-      import('./search/search-module/search-module.module').then(
-        (m) => m.SearchModule
-      ),
+      import('./search/search-module.module').then((m) => m.SearchModule),
   },
 ];
 

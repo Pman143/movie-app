@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SearchModule } from './search/search-module/search-module.module';
+import { SearchModule } from './search/search-module.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +19,7 @@ import { SearchModule } from './search/search-module/search-module.module';
     }),
     BrowserAnimationsModule,
     AppRoutingModule,
-    SearchModule
+    SearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
