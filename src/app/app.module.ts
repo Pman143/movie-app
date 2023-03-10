@@ -6,11 +6,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SearchModule } from './search/search.module';
-import { HeaderComponent } from './header/header.component';
+import { SearchModule } from './components/search/search.module';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { MovieSliderComponent } from './components/movie-slider/movie-slider.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    MovieSliderComponent,
+  ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -22,9 +29,10 @@ import { HeaderComponent } from './header/header.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     SearchModule,
-    MyAngularMaterialModule
+    MyAngularMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [HomeComponent, MovieSliderComponent],
 })
 export class AppModule {}

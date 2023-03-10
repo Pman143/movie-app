@@ -1,13 +1,14 @@
-import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'search-movie', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   {
     path: 'search-movie',
     loadChildren: () =>
-      import('./search/search.module').then((m) => m.SearchModule),
+      import('./components/search/search.module').then((m) => m.SearchModule),
   },
 ];
 

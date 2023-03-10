@@ -1,0 +1,29 @@
+<div class="current-movie">
+    <ng-container *ngFor="let movie of movies; let i = index;">
+        <div class="movie-slider" *ngIf="currentMovie === i">
+            <div class="backdrop">
+                <div class="lazyloaded">
+                    <img class="image lazyload" src="https://image.tmdb.org/t/p/original/{{movie?.moviePosterUrl}}" [alt]="movie?.title">
+                </div>
+            </div>
+            <div class="movie-pane">
+                <div>
+                    <h1 class="movie-name">{{movie?.title}}</h1>
+                    <div class="more-info">
+                        <div class="info">
+                            <span class="movie-rating">
+                                <mat-icon class="material-icons">star</mat-icon>
+                                <span>{{movie?.imbdRating}}</span>/10
+                            </span>
+                            <span>{{movie?.runtimeInMinutes}}</span>
+                            <span>{{movie?.yearReleased | date: 'yyyy'}}</span>
+                        </div>
+                    </div>
+                    <div class="movie-plot">
+                        {{movie?.plot}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
