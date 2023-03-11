@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MovieSearchResponseModel } from '../models/movie-search-response.model';
 import { SingleMovieSearchResult } from '../models/single-movie-search-result.model';
-import { map } from 'rxjs/internal/operators/map';
+import { delay, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +25,8 @@ export class MovieService {
                 (movie) => new MovieSearchResultModel(movie)
               )
             : []
-        )
+        ),
+        delay(600)
       );
   }
 

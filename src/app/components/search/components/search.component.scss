@@ -1,6 +1,9 @@
+@import '../../../../assets/styles/variables';
+
 .main-content {
     padding: 20px;
     background-color: #141414;
+    color: $text-color-white;
 }
 
 mat-paginator{
@@ -27,6 +30,13 @@ mat-paginator{
     border: #dc4666;
 }
 
-.movie-container {
-    display: flex;
+img {
+
+    @media (min-width: $breakpoint-medium) {
+        height: 400px !important;
+    }
+
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium - 1) {
+        height: 300px !important;    
+    }
 }

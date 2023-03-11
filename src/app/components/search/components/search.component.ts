@@ -8,6 +8,7 @@ import {
   map,
 } from 'rxjs/operators';
 import { fromEvent } from 'rxjs';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'search-movie',
@@ -19,6 +20,10 @@ export class SearchComponent implements AfterViewInit {
 
   isLoading: boolean;
   moviesFound: MovieSearchResultModel[] = [];
+  displayedMovies: MovieSearchResultModel[] = [];
+  length: number = 0;
+  pageIndex: number = 0;
+  pageSize: number = 4;
 
   constructor(private movieService: MovieService) {}
 
@@ -39,14 +44,25 @@ export class SearchComponent implements AfterViewInit {
         this.movieService
           .findMovieBySearchTerm(searchTerm)
           .subscribe((movies) => {
-            console.log(movies);
             this.moviesFound = movies;
             this.isLoading = false;
+            this.doPagination();
           });
       });
   }
 
-  changePage(event: any): void {
+  changePage(event: PageEvent): void {
     console.log(event);
+    this.length = event.length;
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    this.doPagination();
+  }
+
+  private doPagination() {
+    const start = this.pageIndex * this.pageSize;
+    const end = (this.pageIndex + 1) * this.pageSize;
+    this.displayedMovies = this.moviesFound.slice(start, end);
+    console.log(this.displayedMovies);
   }
 }

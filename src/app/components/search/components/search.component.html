@@ -21,9 +21,9 @@
             </div>
         </form>
         <app-skeleton *ngIf="isLoading"></app-skeleton>
-        <div class="row">
-            <div class="listing__items" *ngFor="let movie of moviesFound | slice:0:18">
-                <div class="movie-container" [routerLink]="['/movie-detail/', movie.imdbID]">
+        <div *ngIf="!isLoading" class="row">
+            <div class="col-md-3 listing__items" *ngFor="let movie of displayedMovies | slice:0:4">
+                <div [routerLink]="['/movie-detail/', movie.imdbID]">
                     <div class="listing-item-style">
                         <img *ngIf="movie?.posterUrl"
                             src="{{movie?.posterUrl !== 'N/A' ? movie?.posterUrl : 'assets/images/default-movie.png'}}"
@@ -37,6 +37,6 @@
             </div>
         </div>
     </div>
-    <mat-paginator *ngIf="moviesFound.length" [length]="moviesFound.length" [pageSize]="5"
+    <mat-paginator *ngIf="moviesFound.length && moviesFound.length > 4" [length]="moviesFound.length" [pageSize]="4"
         (page)="changePage($event)"></mat-paginator>
 </main>
