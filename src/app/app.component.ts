@@ -9,11 +9,13 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 export class AppComponent {
   title = 'movie-app';
   isLoading: boolean = false;
+  showSearch: boolean = true;
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        this.isLoading = true;
+        this.isLoading = event.url === '/' || event.url === '/home';
+        this.showSearch = !event.url.includes('search');
       } else if (event instanceof NavigationEnd) {
         setTimeout(() => {
           this.isLoading = false;

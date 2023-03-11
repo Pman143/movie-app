@@ -4,7 +4,7 @@
         <mat-icon color="warn">movie</mat-icon>
     </div>
     <span class="example-spacer"></span>
-    <div [routerLink]="['/search-movie']">
+    <div *ngIf="showSearch" [routerLink]="['/search-movie']">
         <div class="search-movie">Search movie</div>
         <mat-icon class="search-icon">search</mat-icon>
     </div>
