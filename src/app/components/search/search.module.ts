@@ -1,4 +1,4 @@
-import { SkeletonComponent } from './../../skeleton/skeleton.component';
+import { MyAngularMaterialModule } from './../../utils/my-angular-material.module';
 import { SearchComponent } from './components/search.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,6 +8,12 @@ import { SkeletonModule } from 'src/app/shared/skeleton/skeleton.module';
 
 @NgModule({
   declarations: [SearchComponent],
-  imports: [CommonModule, SearchRoutingModule, FormsModule, SkeletonModule],
+  imports: [
+    CommonModule,
+    SearchRoutingModule,
+    FormsModule,
+    MyAngularMaterialModule,
+    SkeletonModule,
+  ],
 })
 export class SearchModule {}
