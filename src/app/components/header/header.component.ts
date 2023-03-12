@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Input() showSearch: boolean;
+  @Input() showSearch: boolean = false;
 }

@@ -8,9 +8,8 @@ describe('MovieSliderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MovieSliderComponent ]
-    })
-    .compileComponents();
+      declarations: [MovieSliderComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MovieSliderComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,13 @@ describe('MovieSliderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should invoke sliderTimer', () => {
+    component.currentMovie = 1;
+    const spyOnSliderMovies = spyOn(component, 'sliderTimer').and.callThrough();
+    component.sliderTimer();
+    expect(component.sliderTimer).toHaveBeenCalled();
+    expect(component.currentMovie).toEqual(2);
   });
 });

@@ -20,4 +20,13 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+    it('should set responsiveOptions to have 3 items', () => {
+      expect(component.responsiveOptions.length).toEqual(3);
+    });
+
+      it('should invoke getDummyMovies', () => {
+        const spyOnDummyMovies = spyOn(component, 'getDummyMovies').and.callThrough();
+        expect(spyOnDummyMovies).toHaveBeenCalled();
+      });
 });

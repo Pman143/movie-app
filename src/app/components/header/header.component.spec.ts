@@ -20,4 +20,8 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+    it('should set showSearch to be defined', () => {
+      expect(component.showSearch).toBeDefined()
+    });
 });

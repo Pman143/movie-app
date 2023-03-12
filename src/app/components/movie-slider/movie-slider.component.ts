@@ -5,19 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-movie-slider',
   templateUrl: './movie-slider.component.html',
-  styleUrls: ['./movie-slider.component.scss'],
-  animations: [
-    trigger('fade', [
-      transition('void => *', [
-        style({ opacity: 0 }),
-        animate('300ms', style({ opacity: 1 })),
-      ]),
-      transition('* => void', [
-        style({ opacity: 1 }),
-        animate('300ms', style({ opacity: 0 })),
-      ]),
-    ]),
-  ],
+  styleUrls: ['./movie-slider.component.scss']
 })
 export class MovieSliderComponent implements OnInit {
   movies = [];
