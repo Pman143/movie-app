@@ -1,4 +1,5 @@
-import { MyAngularMaterialModule } from './utils/my-angular-material.module';
+import { SkeletonModule } from 'src/app/components/shared/skeleton/skeleton.module';
+import { MyAngularMaterialModule } from './components/shared/skeleton/my-angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,7 +11,6 @@ import { SearchModule } from './components/search/search.module';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieSliderComponent } from './components/movie-slider/movie-slider.component';
-import { SkeletonComponent } from './skeleton/skeleton.component';
 import { CarouselModule } from 'primeng/carousel';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     HomeComponent,
     MovieSliderComponent,
-    SkeletonComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,10 +36,11 @@ import { HttpClientModule } from '@angular/common/http';
     SearchModule,
     MyAngularMaterialModule,
     CarouselModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    SkeletonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [HomeComponent, MovieSliderComponent, SkeletonComponent],
+  exports: [HomeComponent, MovieSliderComponent],
 })
 export class AppModule {}
