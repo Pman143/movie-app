@@ -31,6 +31,13 @@ export class SearchComponent implements AfterViewInit {
     this.onSearchMovie();
   }
 
+  /*
+  This method is triggered on KeyUp event, with the help of rxjs operator we filter
+  and transform entered string before making a search call.
+  
+  A wait time of 300 milliseconds has been added to avoid making too many calls even when
+   user is still typing.
+  */
   onSearchMovie() {
     fromEvent(this.searchMovieInputRef.nativeElement, 'keyup')
       .pipe(

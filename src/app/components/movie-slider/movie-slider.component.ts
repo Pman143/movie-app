@@ -25,6 +25,10 @@ export class MovieSliderComponent implements OnInit {
           .subscribe((res) => (this.movies = res));
   }
 
+  /*
+  This is used to show only one movie at a time for 5s in the template
+   the current movie to be displayed is calculated with help of modulus operator
+  */
   sliderTimer() {
     setInterval(() => {
       this.currentMovie = ++this.currentMovie % this.movies.length;
