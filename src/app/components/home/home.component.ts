@@ -1,15 +1,16 @@
+import { HomePageMovie } from './../../models/home-page-movie.model';
 import { MovieService } from 'src/app/services/movie.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   isLoading: boolean = false;
   responsiveOptions: {}[] = [];
-  trendingMovies = [];
+  trendingMovies: HomePageMovie[] = [];
 
   constructor(private movieService: MovieService) {
     this.responsiveOptions = [
@@ -29,10 +30,11 @@ export class HomeComponent {
         numScroll: 1,
       },
     ];
-    this.getDummyMovies();
   }
-
-  getDummyMovies() {
-    this.movieService.getDummyHomePageMovies().subscribe(res => this.trendingMovies = res);
+  
+  ngOnInit(): void {
+    this.movieService
+      .getDummyHomePageMovies()
+      .subscribe((res) => (this.trendingMovies = res));
   }
 }

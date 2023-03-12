@@ -1,3 +1,5 @@
+import { SliderMovie } from './../models/slider-movie.model';
+import { HomePageMovie } from './../models/home-page-movie.model';
 import { MovieModel } from './../models/movie.model';
 import { environment } from './../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
@@ -32,11 +34,11 @@ export class MovieService {
       .pipe(map((movie) => new MovieDetail(movie)));
   }
 
-  getDummyHomePageMovies(): Observable<any> {
-    return this.http.get('assets/data/home-movies.json');
+  getDummyHomePageMovies(): Observable<HomePageMovie[]> {
+    return this.http.get<HomePageMovie[]>('assets/data/home-movies.json');
   }
 
-  getMoviesOnSliderScreen(): Observable<any> {
-    return this.http.get('assets/data/slider-movies.json');
+  getMoviesOnSliderScreen(): Observable<SliderMovie[]> {
+    return this.http.get<SliderMovie[]>('assets/data/slider-movies.json');
   }
 }

@@ -12,11 +12,17 @@ export class MovieSliderComponent implements OnInit {
   currentMovie: number = 0;
 
   constructor(private movieService: MovieService) {
-    this.movieService.getMoviesOnSliderScreen().subscribe((res) => this.movies = res);
   }
 
   ngOnInit(): void {
     this.sliderTimer();
+    this.getSliderMovies();
+  }
+
+  getSliderMovies() {
+        this.movieService
+          .getMoviesOnSliderScreen()
+          .subscribe((res) => (this.movies = res));
   }
 
   sliderTimer() {

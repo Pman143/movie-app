@@ -7,7 +7,6 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'movie-app';
   isLoading: boolean = false;
   showSearch: boolean = true;
 
