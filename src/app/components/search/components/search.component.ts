@@ -1,4 +1,4 @@
-import { MovieSearchResultModel } from './../../../models/movie.model';
+import { MovieModel } from './../../../models/movie.model';
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { MovieService } from 'src/app/services/movie.service';
 import {
@@ -19,8 +19,8 @@ export class SearchComponent implements AfterViewInit {
   @ViewChild('searchMovie') searchMovieInputRef: ElementRef;
 
   isLoading: boolean;
-  moviesFound: MovieSearchResultModel[] = [];
-  displayedMovies: MovieSearchResultModel[] = [];
+  moviesFound: MovieModel[] = [];
+  displayedMovies: MovieModel[] = [];
   length: number = 0;
   pageIndex: number = 0;
   pageSize: number = 4;
@@ -52,7 +52,6 @@ export class SearchComponent implements AfterViewInit {
   }
 
   changePage(event: PageEvent): void {
-    console.log(event);
     this.length = event.length;
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
@@ -63,6 +62,5 @@ export class SearchComponent implements AfterViewInit {
     const start = this.pageIndex * this.pageSize;
     const end = (this.pageIndex + 1) * this.pageSize;
     this.displayedMovies = this.moviesFound.slice(start, end);
-    console.log(this.displayedMovies);
   }
 }

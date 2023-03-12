@@ -1,4 +1,4 @@
-export class SingleMovieSearchResult {
+export class MovieDetail {
   title: string;
   yearReleased: string;
   posterUrl: string;

@@ -1,7 +1,7 @@
-import { MovieSearchResultModel } from "./movie.model";
+import { MovieModel } from "./movie.model";
 
 export class MovieSearchResponseModel {
-    Search: MovieSearchResultModel[];
+    Search: MovieModel[];
     Response: string;
     totalResults: number;
 }

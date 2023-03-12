@@ -1,4 +1,4 @@
-export class MovieSearchResultModel {
+export class MovieModel {
   title: string;
   yearReleased: string;
   posterUrl: string;
