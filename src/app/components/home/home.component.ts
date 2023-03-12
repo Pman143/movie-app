@@ -1,3 +1,4 @@
+import { MovieService } from 'src/app/services/movie.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,12 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   isLoading: boolean = false;
-  loader: any;
-  nowPlaying: any;
-  responsiveOptions: any;
-  trendingMovies = TRENDING_MOVIES;
+  responsiveOptions: {}[] = [];
+  trendingMovies = [];
 
-  constructor() {
+  constructor(private movieService: MovieService) {
     this.responsiveOptions = [
       {
         breakpoint: '1024px',
@@ -30,5 +29,10 @@ export class HomeComponent {
         numScroll: 1,
       },
     ];
+    this.getDummyMovies();
+  }
+
+  getDummyMovies() {
+    this.movieService.getDummyHomePageMovies().subscribe(res => this.trendingMovies = res);
   }
 }

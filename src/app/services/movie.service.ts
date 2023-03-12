@@ -13,17 +13,13 @@ import { MovieDetail } from '../models/movie-detail.model';
 export class MovieService {
   constructor(private http: HttpClient) {}
 
-  findMovieBySearchTerm(
-    searchTerm: string
-  ): Observable<MovieModel[]> {
+  findMovieBySearchTerm(searchTerm: string): Observable<MovieModel[]> {
     return this.http
       .get(`${environment.appUrl}?apiKey=${environment.apiKey}&s=${searchTerm}`)
       .pipe(
         map((movSearchResultRes: MovieSearchResponseModel) =>
           movSearchResultRes.Response === 'True'
-            ? movSearchResultRes.Search.map(
-                (movie) => new MovieModel(movie)
-              )
+            ? movSearchResultRes.Search.map((movie) => new MovieModel(movie))
             : []
         ),
         delay(600)
@@ -34,5 +30,13 @@ export class MovieService {
     return this.http
       .get(`${environment.appUrl}?apiKey=${environment.apiKey}&t=${movieTitle}`)
       .pipe(map((movie) => new MovieDetail(movie)));
+  }
+
+  getDummyHomePageMovies(): Observable<any> {
+    return this.http.get('assets/data/home-movies.json');
+  }
+
+  getMoviesOnSliderScreen(): Observable<any> {
+    return this.http.get('assets/data/slider-movies.json');
   }
 }
