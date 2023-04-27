@@ -2,7 +2,7 @@
 
 .moviapp-container {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 
   :hover {
     cursor: pointer;
@@ -31,7 +31,7 @@
   display: none;
   font-size: large;
 
-  @media (min-width: $breakpoint-xsmall + 1) {
+  @media (min-width: calc($breakpoint-xsmall + 1)) {
     display: block;
     padding: 7px;
     border-radius: 25px 25px;
